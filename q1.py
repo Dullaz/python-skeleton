@@ -5,12 +5,7 @@ from time import clock
 
 def question01(portfolios):
     # modify and then return the variable below
-    start = clock()
-    print(portfolios)
     answer = solve(portfolios)
-    end = clock()
-    print(end-start)
-    
     return answer
 
 
