@@ -18,7 +18,7 @@ def solve(portf):
         return portf[0]
     # Strip MSBs if all values are above 2**(n-1)
     offset = 0
-    n = 32
+    n = 31
     while(True):
         if(portf[0] < 2**n):
             n -= 1
