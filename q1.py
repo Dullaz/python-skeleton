@@ -19,13 +19,20 @@ def solve(portf):
   offset = 0
   n=15
   while(True):
-    if(portf[-1] > 2**n):
-      offset += 2**n #store the offset we stripped away
+    if(portf[0] < 2**n):
+      n-=1
     else:
       break
-    n -= 1
+  while(True):
+    if(portf[-1] > 2**n):
+      offset += 2**n #store the offset we stripped away
+      n -= 1
+    else:
+      break
+    
   #strip away the leading one here
-  portf[:] = [x - offset for x in portf]
+  if(offset > 0):
+    portf[:] = [x - offset for x in portf]
   
   #find the first value that falls below 2**(n)
   i=0
@@ -38,8 +45,24 @@ def solve(portf):
   
   #start testing
   maxmerge = 0
-  for i in range(len(portlow)):
-	  tempm = modbin((portlow[i]^2**n),porthigh,n)
+  if(len(portlow) > len(porthigh)):
+    portn = porthigh
+    porth = portlow
+  else:
+    portn = portlow
+    porth = porthigh
+  
+  maxmerge = 0
+  for i in range(len(portn)):
+    for j in range(len(porth)):
+      temp = portn[i] ^ porth[j]
+      if(temp > maxmerge):
+        maxmerge = temp
+  return maxmerge
+
+  '''
+  for i in range(len(portn)):
+	  tempm = modbin((portn[i]^2**n),porth,n)
 	  if(tempm > maxmerge):
 		  maxmerge = tempm
   return(maxmerge + offset)
@@ -58,3 +81,6 @@ def modbin(needle,haystack,n):
 			else:
 				first = midpoint + 1
 	return max(origin^haystack[first],origin^haystack[last])
+  '''
+
+#print(question01([9,7,12,2]))
