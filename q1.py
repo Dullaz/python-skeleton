@@ -1,13 +1,16 @@
-# ONLY EDIT FUNCTIONS MARKED CLEARLY FOR EDITING
-
 import numpy as np
 # modify this function, and create other functions below as you wish
+from time import clock
 
 
 def question01(portfolios):
     # modify and then return the variable below
-
+    start = clock()
+    print(portfolios)
     answer = solve(portfolios)
+    end = clock()
+    print(end-start)
+    
     return answer
 
 
@@ -62,3 +65,27 @@ def solve(portf):
             if(temp > maxmerge):
                 maxmerge = temp
     return maxmerge
+
+
+'''
+  for i in range(len(portn)):
+          tempm = modbin((portn[i]^2**n),porth,n)
+          if(tempm > maxmerge):
+                  maxmerge = tempm
+  return(maxmerge + offset)
+
+def modbin(needle,haystack,n):
+        first=0
+        last = len(haystack)-1
+        found =false
+        while first<=last:
+                midpoint = (first+last)//2
+                if haystack[midpoint] == needle:
+                        return (2**n)
+                else:
+                        if needle < haystack[midpoint]:
+                                last = midpoint -1
+                        else:
+                                first = midpoint + 1
+        return max(origin^haystack[first],origin^haystack[last])
+  '''
