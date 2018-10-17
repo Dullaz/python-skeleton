@@ -11,17 +11,15 @@ def question04(rows, numberMachines):
   
   for i in rows:
     tempmin = 100000
-    for j in range(len(i) - numberMachines):
+    for j in range(len(i) - numberMachines+1):
       innermin = 0
       for k in range(numberMachines):
         if(not isinstance(i[j+k],int)):
            innermin = 100000
            break;
         innermin += i[j+k]
-      
       if(innermin < tempmin):
            tempmin = innermin
-      
     if(tempmin < minn):
            minn=tempmin
   answer = minn
