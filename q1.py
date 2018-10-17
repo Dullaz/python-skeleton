@@ -12,8 +12,9 @@ def question01(portfolios):
 def solve(portf):
     # Sort descending
     maxmerge = 0
+    
     for i in range(len(portf)):
-        for j in range(len(portf)):
+        for j in range(i,len(portf)):
             temp = portf[i]^portf[j]
             if(temp > maxmerge):
                 maxmerge = temp
