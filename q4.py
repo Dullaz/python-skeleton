@@ -15,10 +15,10 @@ def question04(rows, numberMachines):
     for j in range(len(i) - numberMachines+1):
       innermin = 0
       for k in range(numberMachines):
-        if(i[j+k] == 'X'):
+        if(i[j+k] == u'X'):
            innermin = 100000
            break;
-        innermin += i[j+k]
+        innermin += int(i[j+k])
       if(innermin < tempmin):
            tempmin = innermin
     if(tempmin < minn):
