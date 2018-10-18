@@ -8,21 +8,20 @@ def question04(rows, numberMachines):
   minn = 100000
   tempmin = 100000
   innermin = 100000
-  
+  print(rows)
+  print(numberMachines)
   for i in rows:
     tempmin = 100000
     for j in range(len(i) - numberMachines+1):
       innermin = 0
       for k in range(numberMachines):
-        if(not isinstance(i[j+k],int)):
+        if(i[j+k] == 'X'):
            innermin = 100000
            break;
         innermin += i[j+k]
       if(innermin < tempmin):
            tempmin = innermin
-    print("Temp min is: ", tempmin)
     if(tempmin < minn):
            minn=tempmin
   answer = minn
-  print("Final answers: ", answer)
   return answer
