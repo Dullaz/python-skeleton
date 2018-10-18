@@ -20,7 +20,9 @@ def question04(rows, numberMachines):
         innermin += i[j+k]
       if(innermin < tempmin):
            tempmin = innermin
+    print("Temp min is: ", tempmin)
     if(tempmin < minn):
            minn=tempmin
   answer = minn
+  print("Final answers: ", answer)
   return answer
