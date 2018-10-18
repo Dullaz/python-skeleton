@@ -14,7 +14,7 @@ def solve(portf):
     maxmerge = 0
     
     for i in range(len(portf)):
-        for j in range(i,len(portf)):
+        for j in range(i+1,len(portf)):
             temp = portf[i]^portf[j]
             if(temp > maxmerge):
                 maxmerge = temp
